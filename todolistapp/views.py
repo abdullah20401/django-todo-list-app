@@ -4,6 +4,9 @@ from .models import Todo
 
 # Create your views here.
 def home(request):
-    context = {'todo': Todo}
+    todo = Todo.objects.all()
+    
+
+    context = {'todo': todo}
     
     return render(request, 'todolistapp/home.html', context)

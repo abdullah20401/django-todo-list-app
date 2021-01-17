@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <article class="panel is-primary">
+                <p class="panel-heading">
+                  Todo List
+                </p>
+                {% for item in todo %}
+                    <a class="panel-block">
+                        <span class="panel-icon pr-5">
+                            <div class="field">   
+                                {% if item.task_complete %}
+                                    <input class="is-checkradio is-circle is-success" id="exampleCheckboxSuccess" type="checkbox" name="exampleCheckboxSuccess" checked>
+                                
+                                {% else %}
+                                    <input class="is-checkradio is-circle is-success" id="exampleCheckboxSuccess" type="checkbox" name="exampleCheckboxSuccess">
+
+                                {% endif %}
+                                <label for="exampleCheckboxSuccess"></label>
+                            </div>
+                        </span>
+                        <h4 class="title is-4">{{ item.task_name }}</h3>
+                    </a>
+                {% endfor %}
+              </article>
+        </div>
+  </section>
+{% endblock %}
